@@ -1,0 +1,17 @@
+{
+    "name": "cryptocontrol/crypto-news-api",
+    "description": "Client to get a crypto newsfeed in your app from the CryptoControl API",
+    "license": "Apache MIT",
+    "authors": [
+        {
+            "name": "Steven Enamakel",
+            "email": "enamakel@cryptocontrol.io"
+        }
+    ],
+    "repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/cryptocontrol/php-api"
+    }],
+    "minimum-stability": "dev",
+    "require": {}
+}
