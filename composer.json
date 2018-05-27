@@ -2,6 +2,11 @@
     "name": "cryptocontrol/crypto-news-api",
     "description": "Client to get a crypto newsfeed in your app from the CryptoControl API",
     "license": "Apache MIT",
+    "autoload": {
+        "psr-0": {
+            "CryptoControl": "src"
+        }
+    },
     "authors": [
         {
             "name": "Steven Enamakel",
