@@ -5,7 +5,7 @@ Official PHP client for the [CryptoControl.io](https://cryptocontrol.io) API. Th
 
 ## Installation
 ```sh
-composer install crypto-news-api
+composer require cryptocontrol/crypto-news-api
 ```
 
 ## Usage
