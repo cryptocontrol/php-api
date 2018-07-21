@@ -141,7 +141,7 @@ class CryptoNewsApi {
 
 
     /**
-     * Get top reddit/articles/tweets (seperated) for a given coin
+     * Get latest reddit/articles/tweets (seperated) for a given coin
      */
     public function getLatestItemsByCoin($coin, $language = "en") {
         return $this->_fetch("/all/coin/$coin?latest=true&language=$language");
