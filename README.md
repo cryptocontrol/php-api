@@ -15,18 +15,41 @@ First make sure that you've recieved an API key by visiting [https://cryptocontr
 ```php
 
 $api = new CryptoControl\CryptoNewsApi("API_KEY_HERE");
-$response = $api->getTopNews();
+
+# get top news
+print_r($api->getTopNews());
+
+# get latest russian news
+print_r($api->getLatestNews("ru"));
+
+# get top bitcoin news
+print_r($api->getTopNewsByCoin("bitcoin"));
+
+# get top EOS tweets
+print_r($api->getTopTweetsByCoin("eos"));
+
+# get details (subreddits, twitter handles, description, links) for ethereum
+print_r($api->getCoinDetails("ethereum"));
 
 ```
 
 ## Available Functions
 
-- **getTopNews()** Get the top news articles from the CryptoControl News API.
-- **getLatestNews()** Get the latest news articles from the CryptoControl News API.
-- **getTopNewsByCategory()** Get news articles grouped by category from the CryptoControl News API.
-- **getTopNewsByCoin(coinSlug: String)** Get the top news articles for a specific coin from the CryptoControl API.
-- **getLatestNewsByCoin(coinSlug: String)** Get the latest news articles for a specific coin from the CryptoControl News API.
-- **getTopNewsByCoinCategory(coinSlug: String)** Get news articles grouped by category for a specific coin from the CryptoControl News API.
+- **getTopNews(lang?: enum)** Get the top news articles.
+- **getLatestNews(lang?: enum)** Get the latest news articles.
+- **getTopNewsByCategory(lang?: enum)** Get news articles grouped by category.
+- **getTopNewsByCoin(coin: String, lang?: enum)** Get the top news articles for a specific coin from the CryptoControl API.
+- **getLatestNewsByCoin(coin: String, lang?: enum)** Get the latest news articles for a specific coin.
+- **getTopNewsByCoinCategory(coin: String, lang?: enum)** Get news articles grouped by category for a specific coin.
+- **getTopRedditPostsByCoin(coin: String, lang?: enum)** Get top reddit posts for a particular coin
+- **getLatestRedditPostsByCoin(coin: String, lang?: enum)** Get latest reddit posts for a particular coin
+- **getTopTweetsByCoin(coin: String, lang?: enum)** Get top tweets for a particular coin
+- **getLatestTweetsByCoin(coin: String, lang?: enum)** Get latest tweets for a particular coin
+- **getTopFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by time)
+- **getLatestFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by relevance)
+- **getCoinDetails(coin: String)** Get all details about a particular coin (links, description, subreddits, twitter etc..)
+
+`lang` allows developers to choose which language they'd like to get the feed. Currently CryptoControl supports English ('en') and Russian ('ru') article feeds.
 
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 
