@@ -28,6 +28,15 @@ print_r($api->getTopNewsByCoin("bitcoin"));
 # get top EOS tweets
 print_r($api->getTopTweetsByCoin("eos"));
 
+# get top Ripple reddit posts
+print_r($api->getLatestRedditPostsByCoin("ripple"));
+
+# get reddit/tweets/articles in a single combined feed for NEO
+print_r($api->getTopFeedByCoin("neo"));
+
+# get latest reddit/tweets/articles (seperated) for Litecoin
+print_r($api->getLatestItemsByCoin("litecoin"));
+
 # get details (subreddits, twitter handles, description, links) for ethereum
 print_r($api->getCoinDetails("ethereum"));
 
