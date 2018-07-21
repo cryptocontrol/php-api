@@ -23,7 +23,7 @@ class CryptoNewsApi {
         ));
 
         // Send the request & save response to $resp
-        $response =  json_decode(curl_exec($curl));
+        $response = json_decode(curl_exec($curl));
 
         // Close request to clear up some resources
         curl_close($curl);
@@ -81,5 +81,77 @@ class CryptoNewsApi {
      */
     public function getTopNewsByCoinCategory($coin, $language = "en") {
         return $this->_fetch("/news/coin/$coin/category?language=$language");
+    }
+
+
+    /**
+     * Get top reddit posts for a given coin
+     */
+    public function getTopRedditPostsByCoin($coin, $language = "en") {
+        return $this->_fetch("/reddit/coin/$coin?language=$language");
+    }
+
+
+    /**
+     * Get latest posts for a given coin
+     */
+    public function getLatestRedditPostsByCoin($coin, $language = "en") {
+        return $this->_fetch("/reddit/coin/$coin?latest=true&language=$language");
+    }
+
+
+    /**
+     * Get top tweets for a given coin
+     */
+    public function getTopTweetsByCoin($coin, $language = "en") {
+        return $this->_fetch("/tweets/coin/$coin?language=$language");
+    }
+
+
+    /**
+     * Get latest tweets for a given coin
+     */
+    public function getLatestTweetsByCoin($coin, $language = "en") {
+        return $this->_fetch("/tweets/coin/$coin?latest=true&language=$language");
+    }
+
+
+    /**
+     * Get top feed (combined reddit/articles/tweets) for a given coin
+     */
+    public function getTopFeedByCoin($coin, $language = "en") {
+        return $this->_fetch("/feed/coin/$coin?language=$language");
+    }
+
+
+    /**
+     * Get latest feed (combined reddit/articles/tweets) for a given coin
+     */
+    public function getLatestFeedByCoin($coin, $language = "en") {
+        return $this->_fetch("/feed/coin/$coin?latest=true&language=$language");
+    }
+
+
+    /**
+     * Get top reddit/articles/tweets (seperated) for a given coin
+     */
+    public function getTopItemsByCoin($coin, $language = "en") {
+        return $this->_fetch("/all/coin/$coin?language=$language");
+    }
+
+
+    /**
+     * Get top reddit/articles/tweets (seperated) for a given coin
+     */
+    public function getLatestItemsByCoin($coin, $language = "en") {
+        return $this->_fetch("/all/coin/$coin?latest=true&language=$language");
+    }
+
+
+    /**
+     * Get all details about a single coin. (Wallets, links, blockexplorers, subreddits etc)
+     */
+    public function getCoinDetails($coin) {
+        return $this->_fetch("/details/coin/$coin");
     }
 }
