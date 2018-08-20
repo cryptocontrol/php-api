@@ -4,6 +4,7 @@ include './src/CryptoNewsApi.php';
 
 $api = new CryptoControl\CryptoNewsApi(getenv("CC_NEWS_API_KEY"));
 
+$api->enableSentiment();
 // print_r($api->getTopNews());
 // print_r($api->getLatestNews("ru"));
 // print_r($api->getTopNewsByCoin("bitcoin"));

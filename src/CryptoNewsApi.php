@@ -6,14 +6,14 @@ namespace CryptoControl;
 class CryptoNewsApi {
     function __construct($apikey) {
         $this->apikey = $apikey;
+        $this->enableSentiment = false;
     }
 
 
     private function _fetch ($url) {
         // Get cURL resource
         $curl = curl_init();
-        $enableSentiment = false;
-
+        $enableSentiment = $this->enableSentiment ? 'true' : 'false';
 
         // Set some options - we are passing in a useragent too here
         $headers = array("x-api-key: " . $this->apikey);
@@ -22,8 +22,7 @@ class CryptoNewsApi {
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_URL => "https://cryptocontrol.io/api/v1/public$url&sentiment=$enableSentiment",
             CURLOPT_USERAGENT => "CryptoControl PHP client v2.2.0",
-
-        ));
+          ));
 
         // Send the request & save response to $resp
         $response = json_decode(curl_exec($curl));
@@ -39,6 +38,8 @@ class CryptoNewsApi {
     public function enableSentiment(){
        $this->enableSentiment = true;
     }
+
+
     /**
      * Get the top news from the CryptoControl API. Returns a JSON array of articles
      */
