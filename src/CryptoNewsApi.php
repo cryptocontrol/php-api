@@ -21,7 +21,7 @@ class CryptoNewsApi {
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_URL => "https://cryptocontrol.io/api/v1/public$url&sentiment=$enableSentiment",
-            CURLOPT_USERAGENT => "CryptoControl PHP client v2.2.0",
+            CURLOPT_USERAGENT => "CryptoControl PHP client v2.3.0",
           ));
 
         // Send the request & save response to $resp
@@ -35,6 +35,9 @@ class CryptoNewsApi {
     }
 
 
+    /**
+     * Enable the sentiment datapoints
+     */
     public function enableSentiment(){
        $this->enableSentiment = true;
     }
@@ -160,6 +163,6 @@ class CryptoNewsApi {
      * Get all details about a single coin. (Wallets, links, blockexplorers, subreddits etc)
      */
     public function getCoinDetails($coin) {
-        return $this->_fetch("/details/coin/$coin");
+        return $this->_fetch("/details/coin/$coin?test");
     }
 }
