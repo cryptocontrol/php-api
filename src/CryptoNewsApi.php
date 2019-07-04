@@ -46,16 +46,16 @@ class CryptoNewsApi {
     /**
      * Get the top news from the CryptoControl API. Returns a JSON array of articles
      */
-    public function getTopNews($language = "en") {
-        return $this->_fetch("/news?language=$language");
+    public function getTopNews($language = "en", $page = 0) {
+        return $this->_fetch("/news?language=$language&page=$page");
     }
 
 
     /**
      * Get the latest news from the CryptoControl API. Returns a JSON array of articles
      */
-    public function getLatestNews($language = "en") {
-        return $this->_fetch("/news?latest=true&language=$language");
+    public function getLatestNews($language = "en", $page = 0) {
+        return $this->_fetch("/news?latest=true&language=$language&page=$page");
     }
 
 
@@ -63,8 +63,8 @@ class CryptoNewsApi {
      * Get news articles grouped by category from the CryptoControl News API. Returns a JSON
      * object where each key reperesents a category and contains an array of articles.
      */
-    public function getTopNewsByCategory($language = "en") {
-        return $this->_fetch("/news/category?language=$language");
+    public function getTopNewsByCategory($language = "en", $page = 0) {
+        return $this->_fetch("/news/category?language=$language&page=$page");
     }
 
 
@@ -72,8 +72,8 @@ class CryptoNewsApi {
      * Get the top news articles for a specific coin from the CryptoControl API.
      * Returns a JSON array of articles
      */
-    public function getTopNewsByCoin($coin, $language = "en") {
-        return $this->_fetch("/news/coin/$coin?language=$language");
+    public function getTopNewsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/news/coin/$coin?language=$language&page=$page");
     }
 
 
@@ -81,8 +81,8 @@ class CryptoNewsApi {
      * Get the latest news articles for a specific coin from the CryptoControl News API.
      * Returns a JSON array of articles
      */
-    public function getLatestNewsByCoin($coin, $language = "en") {
-        return $this->_fetch("/news/coin/$coin?latest=true&language=$language");
+    public function getLatestNewsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/news/coin/$coin?latest=true&language=$language&page=$page");
     }
 
 
@@ -90,72 +90,72 @@ class CryptoNewsApi {
      * Get news articles grouped by category for a specific coin from the CryptoControl News API. Returns a JSON
      * object where each key reperesents a category and contains an array of articles.
      */
-    public function getTopNewsByCoinCategory($coin, $language = "en") {
-        return $this->_fetch("/news/coin/$coin/category?language=$language");
+    public function getTopNewsByCoinCategory($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/news/coin/$coin/category?language=$language&page=$page");
     }
 
 
     /**
      * Get top reddit posts for a given coin
      */
-    public function getTopRedditPostsByCoin($coin, $language = "en") {
-        return $this->_fetch("/reddit/coin/$coin?language=$language");
+    public function getTopRedditPostsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/reddit/coin/$coin?language=$language&page=$page");
     }
 
 
     /**
      * Get latest posts for a given coin
      */
-    public function getLatestRedditPostsByCoin($coin, $language = "en") {
-        return $this->_fetch("/reddit/coin/$coin?latest=true&language=$language");
+    public function getLatestRedditPostsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/reddit/coin/$coin?latest=true&language=$language&page=$page");
     }
 
 
     /**
      * Get top tweets for a given coin
      */
-    public function getTopTweetsByCoin($coin, $language = "en") {
-        return $this->_fetch("/tweets/coin/$coin?language=$language");
+    public function getTopTweetsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/tweets/coin/$coin?language=$language&page=$page");
     }
 
 
     /**
      * Get latest tweets for a given coin
      */
-    public function getLatestTweetsByCoin($coin, $language = "en") {
-        return $this->_fetch("/tweets/coin/$coin?latest=true&language=$language");
+    public function getLatestTweetsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/tweets/coin/$coin?latest=true&language=$language&page=$page");
     }
 
 
     /**
      * Get top feed (combined reddit/articles/tweets) for a given coin
      */
-    public function getTopFeedByCoin($coin, $language = "en") {
-        return $this->_fetch("/feed/coin/$coin?language=$language");
+    public function getTopFeedByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/feed/coin/$coin?language=$language&page=$page");
     }
 
 
     /**
      * Get latest feed (combined reddit/articles/tweets) for a given coin
      */
-    public function getLatestFeedByCoin($coin, $language = "en") {
-        return $this->_fetch("/feed/coin/$coin?latest=true&language=$language");
+    public function getLatestFeedByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/feed/coin/$coin?latest=true&language=$language&page=$page");
     }
 
 
     /**
      * Get top reddit/articles/tweets (seperated) for a given coin
      */
-    public function getTopItemsByCoin($coin, $language = "en") {
-        return $this->_fetch("/all/coin/$coin?language=$language");
+    public function getTopItemsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/all/coin/$coin?language=$language&page=$page");
     }
 
 
     /**
      * Get latest reddit/articles/tweets (seperated) for a given coin
      */
-    public function getLatestItemsByCoin($coin, $language = "en") {
-        return $this->_fetch("/all/coin/$coin?latest=true&language=$language");
+    public function getLatestItemsByCoin($coin, $language = "en", $page = 0) {
+        return $this->_fetch("/all/coin/$coin?latest=true&language=$language&page=$page");
     }
 
 
